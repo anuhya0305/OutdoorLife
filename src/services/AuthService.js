@@ -11,3 +11,11 @@ export const getUsers = async () => {
   const response = await axios.get(API_URL);
   return response.data;
 };
+
+export const loginUser = async (email, password) => {
+  const response = await axios.get(
+    `${API_URL}?email=${email}&password=${password}`
+  );
+
+  return response.data;
+};
