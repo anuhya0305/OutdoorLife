@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Premium Camping Tent",
       "description": "Waterproof 2-person camping tent suitable for all weather conditions.",
       "category": "Camping",
@@ -13,7 +13,7 @@
       "image": "/images/tent.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Family Camping Tent",
       "description": "Large family tent with spacious interior for 6 people.",
       "category": "Camping",
@@ -25,7 +25,7 @@
       "image": "/images/family_tent.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Mountain Hiking Backpack",
       "description": "50L lightweight backpack for trekking and hiking.",
       "category": "Backpacks",
@@ -37,7 +37,7 @@
       "image": "/images/hiking-backpack-1.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Travel Backpack",
       "description": "Durable travel backpack with laptop compartment.",
       "category": "Backpacks",
@@ -49,7 +49,7 @@
       "image": "/images/travel-backpack.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sleeping Bag",
       "description": "Warm and comfortable sleeping bag for outdoor camping.",
       "category": "Camping",
@@ -61,7 +61,7 @@
       "image": "/images/sleeping-bag.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Camping Lantern",
       "description": "Rechargeable LED lantern with long battery backup.",
       "category": "Lighting",
@@ -73,7 +73,7 @@
       "image": "/images/lantern2.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Camping Stove",
       "description": "Portable gas stove for outdoor cooking.",
       "category": "Cooking",
@@ -85,7 +85,7 @@
       "image": "/images/camping-stove2.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Compass",
       "description": "Professional navigation compass for trekking.",
       "category": "Accessories",
@@ -97,7 +97,7 @@
       "image": "/images/compass1.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Water Bottle",
       "description": "Stainless steel insulated water bottle.",
       "category": "Accessories",
@@ -109,7 +109,7 @@
       "image": "/images/steel-bottle2.jpg"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Hiking Shoes",
       "description": "Comfortable waterproof hiking shoes.",
       "category": "Hiking",
@@ -121,7 +121,7 @@
       "image": "/images/hiking-shoes2.jpg"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Camping Chair",
       "description": "Foldable camping chair with lightweight steel frame.",
       "category": "Camping",
@@ -131,204 +131,211 @@
       "stock": 20,
       "featured": true,
       "image": "/images/camping-char2.jpg"
-  },
-  {
-    "id": 12,
-    "name": "Camping Cookware Set",
-    "description": "Portable cookware set for outdoor cooking adventures.",
-    "category": "Cooking",
-    "price": 2499,
-    "oldPrice": 2999,
-    "rating": 4.7,
-    "stock": 18,
-    "featured": true,
-    "image": "/images/cookingware3.jpg"
-  },
-  {
-    "id": 13,
-    "name": "Premium Cookware Set",
-    "description": "Premium cookware with durable non-stick finish.",
-    "category": "Cooking",
-    "price": 2999,
-    "oldPrice": 3499,
-    "rating": 4.8,
-    "stock": 12,
-    "featured": false,
-    "image": "/images/cooking-ware.jpg"
-  },
-  {
-    "id": 14,
-    "name": "Camping Kettle",
-    "description": "Compact stainless steel kettle for camping trips.",
-    "category": "Cooking",
-    "price": 899,
-    "oldPrice": 1099,
-    "rating": 4.5,
-    "stock": 30,
-    "featured": false,
-    "image": "/images/kettle2.jpg"
-  },
-  {
-    "id": 15,
-    "name": "LED Headlamp",
-    "description": "Rechargeable headlamp with adjustable brightness.",
-    "category": "Lighting",
-    "price": 799,
-    "oldPrice": 999,
-    "rating": 4.6,
-    "stock": 28,
-    "featured": false,
-    "image": "/images/headlamp1.jpg"
-  },
-  {
-    "id": 16,
-    "name": "Rechargeable Flashlight",
-    "description": "High-power rechargeable flashlight for trekking.",
-    "category": "Lighting",
-    "price": 699,
-    "oldPrice": 899,
-    "rating": 4.5,
-    "stock": 40,
-    "featured": false,
-    "image": "/images/flashlight3.jpg"
-  },
-  {
-    "id": 17,
-    "name": "Portable Cooler Box",
-    "description": "Keeps food and drinks cool during camping trips.",
-    "category": "Accessories",
-    "price": 3499,
-    "oldPrice": 3999,
-    "rating": 4.8,
-    "stock": 10,
-    "featured": true,
-    "image": "/images/portable-cooler-box.jpg"
-  },
-  {
-    "id": 18,
-    "name": "Portable Fan",
-    "description": "USB rechargeable portable fan for outdoor use.",
-    "category": "Accessories",
-    "price": 1199,
-    "oldPrice": 1499,
-    "rating": 4.5,
-    "stock": 22,
-    "featured": false,
-    "image": "/images/portalefan.jpg"
-  },
-  {
-    "id": 19,
-    "name": "Power Bank 20000mAh",
-    "description": "Fast charging power bank for travel and camping.",
-    "category": "Electronics",
-    "price": 2299,
-    "oldPrice": 2699,
-    "rating": 4.7,
-    "stock": 25,
-    "featured": true,
-    "image": "/images/powerbank.jpg"
-  },
-  {
-    "id": 20,
-    "name": "Rain Poncho",
-    "description": "Waterproof rain poncho for trekking and hiking.",
-    "category": "Hiking",
-    "price": 899,
-    "oldPrice": 1099,
-    "rating": 4.6,
-    "stock": 35,
-    "featured": false,
-    "image": "/images/rain-poncho2.avif"
-  },
-  {
-    "id": 21,
-    "name": "Steel Water Bottle",
-    "description": "Insulated stainless steel bottle keeps drinks cold or hot.",
-    "category": "Accessories",
-    "price": 999,
-    "oldPrice": 1299,
-    "rating": 4.8,
-    "stock": 30,
-    "featured": false,
-    "image": "/images/steel-bottle2.jpg"
-  },
-  {
-    "id": 22,
-    "name": "Survival Toolkit",
-    "description": "Multi-purpose emergency survival toolkit.",
-    "category": "Accessories",
-    "price": 1899,
-    "oldPrice": 2299,
-    "rating": 4.7,
-    "stock": 16,
-    "featured": true,
-    "image": "/images/toolkit1.jpg"
-  },
-  {
-    "id": 23,
-    "name": "Trekking Pole",
-    "description": "Adjustable lightweight trekking pole.",
-    "category": "Hiking",
-    "price": 1499,
-    "oldPrice": 1799,
-    "rating": 4.6,
-    "stock": 20,
-    "featured": false,
-    "image": "/images/treking-pole-2.jpg"
-  },
-  {
-    "id": 24,
-    "name": "Waterproof Hiking Jacket",
-    "description": "Windproof and waterproof outdoor jacket.",
-    "category": "Hiking",
-    "price": 3999,
-    "oldPrice": 4599,
-    "rating": 4.8,
-    "stock": 14,
-    "featured": true,
-    "image": "/images/waterproof-jacket2.avif"
-  },
-  {
-    "id": 25,
-    "name": "Binoculars",
-    "description": "High-zoom binoculars for wildlife observation.",
-    "category": "Accessories",
-    "price": 2799,
-    "oldPrice": 3299,
-    "rating": 4.7,
-    "stock": 18,
-    "featured": true,
-    "image": "/images/binoculars2.jpg"
-  },
-  {
-    "id": 26,
-    "name": "Climbing Rope",
-    "description": "Strong and durable climbing rope for outdoor adventures.",
-    "category": "Accessories",
-    "price": 2499,
-    "oldPrice": 2899,
-    "rating": 4.6,
-    "stock": 12,
-    "featured": false,
-    "image": "/images/rope1.jpg"
-  },
-  {
-    "id": 27,
-    "name": "Insect Spray",
-    "description": "Outdoor insect repellent spray for camping.",
-    "category": "Accessories",
-    "price": 399,
-    "oldPrice": 499,
-    "rating": 4.4,
-    "stock": 50,
-    "featured": false,
-    "image": "/images/insect-spray.jpg"
-  }
+    },
+    {
+      "id": "12",
+      "name": "Camping Cookware Set",
+      "description": "Portable cookware set for outdoor cooking adventures.",
+      "category": "Cooking",
+      "price": 2499,
+      "oldPrice": 2999,
+      "rating": 4.7,
+      "stock": 18,
+      "featured": true,
+      "image": "/images/cookingware3.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Premium Cookware Set",
+      "description": "Premium cookware with durable non-stick finish.",
+      "category": "Cooking",
+      "price": 2999,
+      "oldPrice": 3499,
+      "rating": 4.8,
+      "stock": 12,
+      "featured": false,
+      "image": "/images/cooking-ware.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Camping Kettle",
+      "description": "Compact stainless steel kettle for camping trips.",
+      "category": "Cooking",
+      "price": 899,
+      "oldPrice": 1099,
+      "rating": 4.5,
+      "stock": 30,
+      "featured": false,
+      "image": "/images/kettle2.jpg"
+    },
+    {
+      "id": "15",
+      "name": "LED Headlamp",
+      "description": "Rechargeable headlamp with adjustable brightness.",
+      "category": "Lighting",
+      "price": 799,
+      "oldPrice": 999,
+      "rating": 4.6,
+      "stock": 28,
+      "featured": false,
+      "image": "/images/headlamp1.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Rechargeable Flashlight",
+      "description": "High-power rechargeable flashlight for trekking.",
+      "category": "Lighting",
+      "price": 699,
+      "oldPrice": 899,
+      "rating": 4.5,
+      "stock": 40,
+      "featured": false,
+      "image": "/images/flashlight3.jpg"
+    },
+    {
+      "id": "17",
+      "name": "Portable Cooler Box",
+      "description": "Keeps food and drinks cool during camping trips.",
+      "category": "Accessories",
+      "price": 3499,
+      "oldPrice": 3999,
+      "rating": 4.8,
+      "stock": 10,
+      "featured": true,
+      "image": "/images/portable-cooler-box.jpg"
+    },
+    {
+      "id": "18",
+      "name": "Portable Fan",
+      "description": "USB rechargeable portable fan for outdoor use.",
+      "category": "Accessories",
+      "price": 1199,
+      "oldPrice": 1499,
+      "rating": 4.5,
+      "stock": 22,
+      "featured": false,
+      "image": "/images/portalefan.jpg"
+    },
+    {
+      "id": "19",
+      "name": "Power Bank 20000mAh",
+      "description": "Fast charging power bank for travel and camping.",
+      "category": "Electronics",
+      "price": 2299,
+      "oldPrice": 2699,
+      "rating": 4.7,
+      "stock": 25,
+      "featured": true,
+      "image": "/images/powerbank.jpg"
+    },
+    {
+      "id": "20",
+      "name": "Rain Poncho",
+      "description": "Waterproof rain poncho for trekking and hiking.",
+      "category": "Hiking",
+      "price": 899,
+      "oldPrice": 1099,
+      "rating": 4.6,
+      "stock": 35,
+      "featured": false,
+      "image": "/images/rain-poncho2.avif"
+    },
+    {
+      "id": "21",
+      "name": "Steel Water Bottle",
+      "description": "Insulated stainless steel bottle keeps drinks cold or hot.",
+      "category": "Accessories",
+      "price": 999,
+      "oldPrice": 1299,
+      "rating": 4.8,
+      "stock": 30,
+      "featured": false,
+      "image": "/images/steel-bottle2.jpg"
+    },
+    {
+      "id": "22",
+      "name": "Survival Toolkit",
+      "description": "Multi-purpose emergency survival toolkit.",
+      "category": "Accessories",
+      "price": 1899,
+      "oldPrice": 2299,
+      "rating": 4.7,
+      "stock": 16,
+      "featured": true,
+      "image": "/images/toolkit1.jpg"
+    },
+    {
+      "id": "23",
+      "name": "Trekking Pole",
+      "description": "Adjustable lightweight trekking pole.",
+      "category": "Hiking",
+      "price": 1499,
+      "oldPrice": 1799,
+      "rating": 4.6,
+      "stock": 20,
+      "featured": false,
+      "image": "/images/treking-pole-2.jpg"
+    },
+    {
+      "id": "24",
+      "name": "Waterproof Hiking Jacket",
+      "description": "Windproof and waterproof outdoor jacket.",
+      "category": "Hiking",
+      "price": 3999,
+      "oldPrice": 4599,
+      "rating": 4.8,
+      "stock": 14,
+      "featured": true,
+      "image": "/images/waterproof-jacket2.avif"
+    },
+    {
+      "id": "25",
+      "name": "Binoculars",
+      "description": "High-zoom binoculars for wildlife observation.",
+      "category": "Accessories",
+      "price": 2799,
+      "oldPrice": 3299,
+      "rating": 4.7,
+      "stock": 18,
+      "featured": true,
+      "image": "/images/binoculars2.jpg"
+    },
+    {
+      "id": "26",
+      "name": "Climbing Rope",
+      "description": "Strong and durable climbing rope for outdoor adventures.",
+      "category": "Accessories",
+      "price": 2499,
+      "oldPrice": 2899,
+      "rating": 4.6,
+      "stock": 12,
+      "featured": false,
+      "image": "/images/rope1.jpg"
+    },
+    {
+      "id": "27",
+      "name": "Insect Spray",
+      "description": "Outdoor insect repellent spray for camping.",
+      "category": "Accessories",
+      "price": 399,
+      "oldPrice": 499,
+      "rating": 4.4,
+      "stock": 50,
+      "featured": false,
+      "image": "/images/insect-spray.jpg"
+    }
   ],
-
-  "users": [],
+  "users": [
+    {
+      "name": "anuhya",
+      "email": "anusree1725@gmail.com",
+      "password": "Anuhya@05",
+      "id": "LrO73VV-ph0"
+    }
+  ],
   "wishlist": [],
   "cart": [],
   "orders": [],
-  "reviews": []
+  "reviews": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
