@@ -10,6 +10,7 @@ import ProductDetails from "../pages/Product/ProductDetails";
 import Cart from "../pages/Cart/Cart";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
+import ProtectedRoute from "../components/Auth/ProtectedRoute";
 
 
 const AppRoutes = () => {
@@ -20,10 +21,18 @@ const AppRoutes = () => {
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
         <Route path="shop/:id" element={<ProductDetails />} />
-        <Route path="cart" element={<Cart />} />
+        <Route
+          path="cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+
       </Route>
 
       {/* 404 */}
