@@ -83,7 +83,12 @@ const Navbar = () => {
           {loggedInUser ? (
             <div className="flex items-center gap-4">
               <span className="font-semibold text-green-700">
-                Hi, {loggedInUser.name}
+                <NavLink
+                  to="/profile"
+                  className="font-semibold text-green-700 hover:underline"
+                >
+                  Hi, {loggedInUser.name}
+                </NavLink>
               </span>
 
               <button

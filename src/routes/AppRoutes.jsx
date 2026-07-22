@@ -11,6 +11,8 @@ import Cart from "../pages/Cart/Cart";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import ProtectedRoute from "../components/Auth/ProtectedRoute";
+import Profile from "../pages/Profile/Profile";
+
 
 
 const AppRoutes = () => {
@@ -32,7 +34,16 @@ const AppRoutes = () => {
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route
+          path="profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
 
+        
       </Route>
 
       {/* 404 */}
