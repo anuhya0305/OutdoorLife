@@ -1,8 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    setLoggedInUser(user);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser");
+    setLoggedInUser(null);
+    navigate("/login");
+  };
   const cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -65,13 +80,28 @@ const Navbar = () => {
           </NavLink>
 
 
-          <NavLink
-            to="/login"
-            className="flex items-center gap-2 bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition"
-          >
-            <FaUser />
-            Login
-          </NavLink>
+          {loggedInUser ? (
+            <div className="flex items-center gap-4">
+              <span className="font-semibold text-green-700">
+                Hi, {loggedInUser.name}
+              </span>
+
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <NavLink
+              to="/login"
+              className="flex items-center gap-2 bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition"
+            >
+              <FaUser />
+              Login
+            </NavLink>
+          )}
 
         </div>
 
