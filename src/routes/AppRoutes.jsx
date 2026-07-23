@@ -12,6 +12,7 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import ProtectedRoute from "../components/Auth/ProtectedRoute";
 import Profile from "../pages/Profile/Profile";
+import Wishlist from "../pages/Wishlist/Wishlist";
 
 
 
@@ -42,8 +43,16 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="wishlist"
+          element={
+            <ProtectedRoute>
+              <Wishlist />
+            </ProtectedRoute>
+          }
+        />
 
-        
+
       </Route>
 
       {/* 404 */}

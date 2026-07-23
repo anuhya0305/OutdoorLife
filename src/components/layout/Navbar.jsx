@@ -19,6 +19,9 @@ const Navbar = () => {
     navigate("/login");
   };
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const wishlistItems = useSelector(
+    (state) => state.wishlist.wishlistItems
+  );
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-8 py-4">
@@ -71,7 +74,17 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="flex items-center gap-6">
+          <NavLink
+            to="/wishlist"
+            className="relative hover:text-red-500 transition"
+          >
+            <FaHeart size={20} />
 
+            <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+              {wishlistItems.length}
+            </span>
+          </NavLink>
+          
           <NavLink to="/cart" className="relative hover:text-green-700 transition">
             <FaShoppingCart size={20} />
             <span className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
