@@ -1,21 +1,30 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
+import { addToWishlist } from "../../redux/wishlistSlice";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../services/ProductService";
 import { FaShoppingCart, FaHeart, FaStar } from "react-icons/fa";
+import Reviews from "./components/Reviews";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const wishlistItems = useSelector(
+    (state) => state.wishlist.wishlistItems
+  );
 
   const [product, setProduct] = useState(null);
 
+  const isWishlisted = wishlistItems.some(
+    (item) => item.id === product?.id
+  );
   useEffect(() => {
     getProducts().then((data) => {
       const selected = data.find(
         (item) => String(item.id) === String(id)
-       );
+      );
       setProduct(selected);
     });
   }, [id]);
@@ -30,9 +39,13 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    alert(`${product.name} added to cart!`);
+    toast.success(`${product.name} added to cart!`);
   };
 
+  const handleWishlist = () => {
+    dispatch(addToWishlist(product));
+    toast.success(`${product.name} added to wishlist!`);
+  };
   return (
     <div className="pt-28 pb-20 bg-gray-100 min-h-screen">
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8 grid md:grid-cols-2 gap-10">
@@ -86,14 +99,23 @@ const ProductDetails = () => {
               Add to Cart
             </button>
 
-            <button className="border px-6 py-3 rounded-lg hover:bg-red-500 hover:text-white">
+            <button
+              onClick={handleWishlist}
+              className={`border px-6 py-3 rounded-lg transition ${isWishlisted
+                ? "bg-red-500 text-white"
+                : "hover:bg-red-500 hover:text-white"
+                }`}
+            >
               <FaHeart />
             </button>
 
           </div>
 
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto mt-10 px-4">
+        <Reviews productId={product.id} />
       </div>
     </div>
   );

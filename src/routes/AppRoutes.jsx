@@ -13,6 +13,11 @@ import Register from "../pages/Auth/Register";
 import ProtectedRoute from "../components/Auth/ProtectedRoute";
 import Profile from "../pages/Profile/Profile";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import Checkout from "../pages/Checkout/Checkout";
+import Orders from "../pages/Orders/Orders";
+import OrderSuccess from "../pages/OrderSuccess/OrderSuccess";
+import Payment from "../pages/Payment/Payment";
+
 
 
 
@@ -51,12 +56,48 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="checkout"
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="orders"
+          element={
+            <ProtectedRoute>
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="order-success"
+          element={
+            <ProtectedRoute>
+              <OrderSuccess />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="payment"
+          element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
+
+
+
 
 
       </Route>
 
       {/* 404 */}
       <Route path="*" element={<NotFound />} />
+
     </Routes>
   );
 };

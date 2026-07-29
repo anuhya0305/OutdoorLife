@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromWishlist } from "../../redux/wishlistSlice";
+import { addToCart } from "../../redux/cartSlice";
 
 const Wishlist = () => {
   const wishlistItems = useSelector(
@@ -37,14 +38,23 @@ const Wishlist = () => {
                 ₹{item.price}
               </p>
 
-              <button
-                onClick={() =>
-                  dispatch(removeFromWishlist(item.id))
-                }
-                className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg"
-              >
-                Remove
-              </button>
+              <div className="flex gap-3 mt-4">
+
+                <button
+                  onClick={() => dispatch(addToCart(item))}
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
+                >
+                  Add to Cart
+                </button>
+
+                <button
+                  onClick={() => dispatch(removeFromWishlist(item.id))}
+                  className="flex-1 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
+                >
+                  Remove
+                </button>
+
+              </div>
             </div>
           ))}
         </div>
