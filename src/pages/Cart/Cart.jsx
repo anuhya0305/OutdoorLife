@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {
   increaseQuantity,
@@ -7,6 +8,7 @@ import {
 } from "../../redux/cartSlice";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   const dispatch = useDispatch();
@@ -84,10 +86,19 @@ const Cart = () => {
 
         {cartItems.length > 0 && (
           <div className="mt-8 flex justify-end">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+
+              <h2 className="text-2xl font-bold mb-4">
                 Grand Total: ₹{totalAmount}
               </h2>
+
+              <button
+                onClick={() => navigate("/checkout")}
+                className="w-full bg-green-700 text-white py-3 rounded-lg hover:bg-green-800"
+              >
+                Proceed to Checkout
+              </button>
+
             </div>
           </div>
         )}
