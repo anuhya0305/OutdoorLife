@@ -5,6 +5,11 @@ import OfferBanner from "../../components/Home/OfferBanner";
 import WhyChooseUs from "../../components/Home/WhyChooseUs";
 import Testimonials from "../../components/Home/Testimonials";
 import Newsletter from "../../components/Home/Newsletter";
+import Deals from "../../components/Home/Deals";
+import BestSellers from "../../components/Home/BestSellers";
+
+
+
 
 const Home = () => {
   return (
@@ -12,7 +17,9 @@ const Home = () => {
       <Hero />
       <Categories />
       <FeaturedProducts />
+      <Deals />
       <OfferBanner />
+      <BestSellers />
       <WhyChooseUs />
       <Testimonials />
       <Newsletter />
