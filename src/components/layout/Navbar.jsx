@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import {
+  FaHeart,
+  FaShoppingCart,
+  FaUser,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -24,18 +31,26 @@ const Navbar = () => {
   );
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-8 py-4">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 md:px-8 py-4">
 
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2">
-          <span className="text-3xl">🏕️</span>
-          <h1 className="text-3xl font-bold text-green-700">
+          <span className="text-2xl md:text-3xl">🏕️</span>
+
+          <h1 className="text-xl md:text-3xl font-bold text-green-700">
             OutdoorLife
           </h1>
         </NavLink>
-
+        <div className="md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+        </div>
         {/* Menu */}
-        <div className="flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
 
           <NavLink
             to="/"
@@ -73,7 +88,7 @@ const Navbar = () => {
         </div>
 
         {/* Icons */}
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
           <NavLink
             to="/wishlist"
             className="relative hover:text-red-500 transition"
@@ -84,7 +99,7 @@ const Navbar = () => {
               {wishlistItems.length}
             </span>
           </NavLink>
-          
+
           <NavLink to="/cart" className="relative hover:text-green-700 transition">
             <FaShoppingCart size={20} />
             <span className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -95,14 +110,20 @@ const Navbar = () => {
 
           {loggedInUser ? (
             <div className="flex items-center gap-4">
-              <span className="font-semibold text-green-700">
-                <NavLink
-                  to="/profile"
-                  className="font-semibold text-green-700 hover:underline"
-                >
-                  Hi, {loggedInUser.name}
-                </NavLink>
-              </span>
+
+              <NavLink
+                to="/orders"
+                className="hover:text-green-700"
+              >
+                My Orders
+              </NavLink>
+
+              <NavLink
+                to="/profile"
+                className="font-semibold text-green-700 hover:underline"
+              >
+                Hi, {loggedInUser.name}
+              </NavLink>
 
               <button
                 onClick={handleLogout}
@@ -110,7 +131,9 @@ const Navbar = () => {
               >
                 Logout
               </button>
+
             </div>
+
           ) : (
             <NavLink
               to="/login"
@@ -124,6 +147,91 @@ const Navbar = () => {
         </div>
 
       </div>
+      {menuOpen && (
+        <div className="md:hidden bg-white border-t shadow-md px-6 py-4">
+
+          <NavLink
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 hover:text-green-700"
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/shop"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 hover:text-green-700"
+          >
+            Shop
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 hover:text-green-700"
+          >
+            Contact
+          </NavLink>
+
+          <NavLink
+            to="/wishlist"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 hover:text-red-500"
+          >
+            ❤️ Wishlist ({wishlistItems.length})
+          </NavLink>
+
+          <NavLink
+            to="/cart"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 hover:text-green-700"
+          >
+            🛒 Cart ({cartItems.length})
+          </NavLink>
+
+          {loggedInUser && (
+            <>
+              <NavLink
+                to="/orders"
+                onClick={() => setMenuOpen(false)}
+                className="block py-2 hover:text-green-700"
+              >
+                My Orders
+              </NavLink>
+
+              <NavLink
+                to="/profile"
+                onClick={() => setMenuOpen(false)}
+                className="block py-2 hover:text-green-700"
+              >
+                Hi, {loggedInUser.name}
+              </NavLink>
+
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMenuOpen(false);
+                }}
+                className="mt-3 w-full bg-red-600 text-white py-2 rounded-lg"
+              >
+                Logout
+              </button>
+            </>
+          )}
+
+          {!loggedInUser && (
+            <NavLink
+              to="/login"
+              onClick={() => setMenuOpen(false)}
+              className="block mt-3 bg-green-700 text-white text-center py-2 rounded-lg"
+            >
+              Login
+            </NavLink>
+          )}
+
+        </div>
+      )}
     </nav>
   );
 };
