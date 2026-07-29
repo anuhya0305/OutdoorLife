@@ -10,6 +10,8 @@
       "rating": 4.8,
       "stock": 15,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/tent.jpg"
     },
     {
@@ -22,6 +24,8 @@
       "rating": 4.9,
       "stock": 8,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/family_tent.jpg"
     },
     {
@@ -34,6 +38,8 @@
       "rating": 4.7,
       "stock": 20,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/hiking-backpack-1.jpg"
     },
     {
@@ -46,6 +52,8 @@
       "rating": 4.6,
       "stock": 18,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/travel-backpack.jpg"
     },
     {
@@ -58,6 +66,8 @@
       "rating": 4.8,
       "stock": 25,
       "featured": true,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/sleeping-bag.jpg"
     },
     {
@@ -70,6 +80,8 @@
       "rating": 4.6,
       "stock": 35,
       "featured": true,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/lantern2.jpg"
     },
     {
@@ -82,6 +94,8 @@
       "rating": 4.5,
       "stock": 15,
       "featured": false,
+      "deal": true,
+      "bestSeller": false,
       "image": "/images/camping-stove2.jpg"
     },
     {
@@ -94,6 +108,8 @@
       "rating": 4.4,
       "stock": 60,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/compass1.jpg"
     },
     {
@@ -106,6 +122,8 @@
       "rating": 4.7,
       "stock": 40,
       "featured": true,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/steel-bottle2.jpg"
     },
     {
@@ -118,6 +136,8 @@
       "rating": 4.8,
       "stock": 22,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/hiking-shoes2.jpg"
     },
     {
@@ -130,6 +150,8 @@
       "rating": 4.6,
       "stock": 20,
       "featured": true,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/camping-char2.jpg"
     },
     {
@@ -142,6 +164,8 @@
       "rating": 4.7,
       "stock": 18,
       "featured": true,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/cookingware3.jpg"
     },
     {
@@ -154,6 +178,8 @@
       "rating": 4.8,
       "stock": 12,
       "featured": false,
+      "deal": true,
+      "bestSeller": false,
       "image": "/images/cooking-ware.jpg"
     },
     {
@@ -166,6 +192,8 @@
       "rating": 4.5,
       "stock": 30,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/kettle2.jpg"
     },
     {
@@ -178,6 +206,8 @@
       "rating": 4.6,
       "stock": 28,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/headlamp1.jpg"
     },
     {
@@ -190,6 +220,8 @@
       "rating": 4.5,
       "stock": 40,
       "featured": false,
+      "deal": true,
+      "bestSeller": false,
       "image": "/images/flashlight3.jpg"
     },
     {
@@ -202,6 +234,8 @@
       "rating": 4.8,
       "stock": 10,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/portable-cooler-box.jpg"
     },
     {
@@ -214,6 +248,8 @@
       "rating": 4.5,
       "stock": 22,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/portalefan.jpg"
     },
     {
@@ -226,6 +262,8 @@
       "rating": 4.7,
       "stock": 25,
       "featured": true,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/powerbank.jpg"
     },
     {
@@ -238,6 +276,8 @@
       "rating": 4.6,
       "stock": 35,
       "featured": false,
+      "deal": true,
+      "bestSeller": false,
       "image": "/images/rain-poncho2.avif"
     },
     {
@@ -250,6 +290,8 @@
       "rating": 4.8,
       "stock": 30,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/steel-bottle2.jpg"
     },
     {
@@ -262,6 +304,8 @@
       "rating": 4.7,
       "stock": 16,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/toolkit1.jpg"
     },
     {
@@ -274,6 +318,8 @@
       "rating": 4.6,
       "stock": 20,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/treking-pole-2.jpg"
     },
     {
@@ -286,6 +332,8 @@
       "rating": 4.8,
       "stock": 14,
       "featured": true,
+      "deal": true,
+      "bestSeller": false,
       "image": "/images/waterproof-jacket2.avif"
     },
     {
@@ -298,6 +346,8 @@
       "rating": 4.7,
       "stock": 18,
       "featured": true,
+      "deal": false,
+      "bestSeller": true,
       "image": "/images/binoculars2.jpg"
     },
     {
@@ -310,6 +360,8 @@
       "rating": 4.6,
       "stock": 12,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/rope1.jpg"
     },
     {
@@ -322,7 +374,93 @@
       "rating": 4.4,
       "stock": 50,
       "featured": false,
+      "deal": false,
+      "bestSeller": false,
       "image": "/images/insect-spray.jpg"
+    },
+    {
+      "id": "28",
+      "name": "Travel Backpack Pro",
+      "description": "Spacious travel backpack with laptop compartment, USB charging port, and multiple storage pockets.",
+      "category": "Backpacks",
+      "price": 3899,
+      "oldPrice": 4599,
+      "rating": 4.8,
+      "stock": 18,
+      "featured": false,
+      "deal": false,
+      "bestSeller": true,
+      "image": "/images/backpack4.png"
+    },
+    {
+      "id": "29",
+      "name": "Adventure Backpack",
+      "description": "Stylish lightweight backpack with padded straps, ideal for hiking, travel, and everyday outdoor adventures.",
+      "category": "Backpacks",
+      "price": 3199,
+      "oldPrice": 3799,
+      "rating": 4.7,
+      "stock": 20,
+      "featured": false,
+      "deal": true,
+      "bestSeller": false,
+      "image": "/images/backpack3.png"
+    },
+    {
+      "id": "30",
+      "name": "Portable Charger 30000mAh",
+      "description": "High-capacity fast charging power bank with USB-C and dual USB output for outdoor travel.",
+      "category": "Electronics",
+      "price": 2999,
+      "oldPrice": 3499,
+      "rating": 4.8,
+      "stock": 25,
+      "featured": true,
+      "deal": true,
+      "bestSeller": true,
+      "image": "/images/portablecharger.png"
+    },
+    {
+      "id": "31",
+      "name": "Foldable Solar Charger 20W",
+      "description": "Portable foldable solar charger with USB output for charging phones and power banks during camping.",
+      "category": "Electronics",
+      "price": 3499,
+      "oldPrice": 4299,
+      "rating": 4.9,
+      "stock": 15,
+      "featured": true,
+      "deal": false,
+      "bestSeller": true,
+      "image": "/images/solarCharger.png"
+    },
+    {
+      "id": "32",
+      "name": "Walkie Talkie",
+      "description": "Long-range two-way radio with rechargeable battery for hiking, trekking, and camping communication.",
+      "category": "Electronics",
+      "price": 2799,
+      "oldPrice": 3299,
+      "rating": 4.8,
+      "stock": 14,
+      "featured": false,
+      "deal": true,
+      "bestSeller": false,
+      "image": "/images/walkie-talkie.png"
+    },
+    {
+      "id": "33",
+      "name": "Emergency Weather Radio",
+      "description": "Multi-function emergency radio with solar charging, hand crank, flashlight, SOS alarm, and USB charging support.",
+      "category": "Electronics",
+      "price": 4299,
+      "oldPrice": 4999,
+      "rating": 4.9,
+      "stock": 12,
+      "featured": true,
+      "deal": false,
+      "bestSeller": true,
+      "image": "/images/weatherRadio.png"
     }
   ],
   "users": [
@@ -335,7 +473,168 @@
   ],
   "wishlist": [],
   "cart": [],
-  "orders": [],
+  "orders": [
+    {
+      "orderId": "ORD-1784951754658",
+      "customer": {
+        "fullName": "Anuhya A",
+        "phone": "9014081725",
+        "alternatePhone": "",
+        "houseNo": "432",
+        "building": "",
+        "street": "jntu",
+        "landmark": "",
+        "city": "hyderabad",
+        "state": "hyderaabd",
+        "pincode": "516505",
+        "instructions": ""
+      },
+      "items": [
+        {
+          "id": "2",
+          "name": "Family Camping Tent",
+          "description": "Large family tent with spacious interior for 6 people.",
+          "category": "Camping",
+          "price": 11999,
+          "oldPrice": 13999,
+          "rating": 4.9,
+          "stock": 8,
+          "featured": true,
+          "deal": false,
+          "bestSeller": false,
+          "image": "/images/family_tent.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 11999,
+      "orderDate": "2026-07-25T03:55:54.658Z",
+      "paymentMethod": "Net Banking",
+      "paymentStatus": "Paid",
+      "orderStatus": "Processing",
+      "id": "HuP-KsDDkNQ"
+    },
+    {
+      "orderId": "ORD-1784952312599",
+      "customer": {
+        "fullName": "Anuhya A",
+        "phone": "9014081725",
+        "alternatePhone": "",
+        "houseNo": "432",
+        "building": "",
+        "street": "jntu",
+        "landmark": "",
+        "city": "hyderabad",
+        "state": "hyderaabd",
+        "pincode": "123465",
+        "instructions": ""
+      },
+      "items": [
+        {
+          "id": "1",
+          "name": "Premium Camping Tent",
+          "description": "Waterproof 2-person camping tent suitable for all weather conditions.",
+          "category": "Camping",
+          "price": 6499,
+          "oldPrice": 7999,
+          "rating": 4.8,
+          "stock": 15,
+          "featured": true,
+          "deal": false,
+          "bestSeller": false,
+          "image": "/images/tent.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 6499,
+      "orderDate": "2026-07-25T04:05:12.600Z",
+      "paymentMethod": "Cash on Delivery",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "id": "B7AxducKK-0"
+    },
+    {
+      "orderId": "ORD-1785058549008",
+      "customer": {
+        "fullName": "AVADHANAM SRI LAKSHMI UMA ANUHYA",
+        "phone": "9014081725",
+        "alternatePhone": "",
+        "houseNo": "4-81",
+        "building": "",
+        "street": "4-81 near ramalayam temple agraharam",
+        "landmark": "",
+        "city": "Y.S.R",
+        "state": "Andhra Pradesh",
+        "pincode": "516505",
+        "instructions": ""
+      },
+      "items": [
+        {
+          "id": "3",
+          "name": "Mountain Hiking Backpack",
+          "description": "50L lightweight backpack for trekking and hiking.",
+          "category": "Backpacks",
+          "price": 3499,
+          "oldPrice": 4299,
+          "rating": 4.7,
+          "stock": 20,
+          "featured": true,
+          "deal": false,
+          "bestSeller": true,
+          "image": "/images/hiking-backpack-1.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 3149.1,
+      "discount": 349.90000000000003,
+      "coupon": "SAVE10",
+      "orderDate": "2026-07-26T09:35:49.008Z",
+      "paymentMethod": "Cash on Delivery",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "id": "X0BbEr6WoZM"
+    },
+    {
+      "orderId": "ORD-1785305022404",
+      "customer": {
+        "fullName": "AVADHANAM SRI LAKSHMI UMA ANUHYA",
+        "phone": "9014081725",
+        "alternatePhone": "",
+        "houseNo": "4-81",
+        "building": "",
+        "street": "4-81 near ramalayam temple agraharam",
+        "landmark": "",
+        "city": "Y.S.R",
+        "state": "Andhra Pradesh",
+        "pincode": "516505",
+        "instructions": ""
+      },
+      "items": [
+        {
+          "id": "4",
+          "name": "Travel Backpack",
+          "description": "Durable travel backpack with laptop compartment.",
+          "category": "Backpacks",
+          "price": 2799,
+          "oldPrice": 3499,
+          "rating": 4.6,
+          "stock": 18,
+          "featured": false,
+          "deal": false,
+          "bestSeller": false,
+          "image": "/images/travel-backpack.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 2519.1,
+      "discount": 279.90000000000003,
+      "coupon": "SAVE10",
+      "orderDate": "2026-07-29T06:03:42.404Z",
+      "paymentMethod": "Cash on Delivery",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "id": "JtX6835Bqgs"
+    }
+  ],
   "reviews": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
