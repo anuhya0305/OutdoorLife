@@ -465,10 +465,10 @@
   ],
   "users": [
     {
-      "name": "anuhya",
-      "email": "anusree1725@gmail.com",
-      "password": "Anuhya@05",
-      "id": "LrO73VV-ph0"
+      "name": "Demo User",
+      "email": "demo@example.com",
+      "password": "DemoPass123",
+      "id": "demo-user-001"
     }
   ],
   "wishlist": [],
@@ -477,16 +477,16 @@
     {
       "orderId": "ORD-1784951754658",
       "customer": {
-        "fullName": "Anuhya A",
-        "phone": "9014081725",
+        "fullName": "Demo User",
+        "phone": "9000000000",
         "alternatePhone": "",
-        "houseNo": "432",
+        "houseNo": "123",
         "building": "",
-        "street": "jntu",
+        "street": "Demo Street",
         "landmark": "",
-        "city": "hyderabad",
-        "state": "hyderaabd",
-        "pincode": "516505",
+        "city": "Demo City",
+        "state": "Demo State",
+        "pincode": "000000",
         "instructions": ""
       },
       "items": [
@@ -516,16 +516,16 @@
     {
       "orderId": "ORD-1784952312599",
       "customer": {
-        "fullName": "Anuhya A",
-        "phone": "9014081725",
+        "fullName": "Demo User",
+        "phone": "9000000000",
         "alternatePhone": "",
-        "houseNo": "432",
+        "houseNo": "123",
         "building": "",
-        "street": "jntu",
+        "street": "Demo Street",
         "landmark": "",
-        "city": "hyderabad",
-        "state": "hyderaabd",
-        "pincode": "123465",
+        "city": "Demo City",
+        "state": "Demo State",
+        "pincode": "000000",
         "instructions": ""
       },
       "items": [
@@ -555,16 +555,16 @@
     {
       "orderId": "ORD-1785058549008",
       "customer": {
-        "fullName": "AVADHANAM SRI LAKSHMI UMA ANUHYA",
-        "phone": "9014081725",
+        "fullName": "Demo User",
+        "phone": "9000000000",
         "alternatePhone": "",
-        "houseNo": "4-81",
+        "houseNo": "123",
         "building": "",
-        "street": "4-81 near ramalayam temple agraharam",
+        "street": "Demo Street",
         "landmark": "",
-        "city": "Y.S.R",
-        "state": "Andhra Pradesh",
-        "pincode": "516505",
+        "city": "Demo City",
+        "state": "Demo State",
+        "pincode": "000000",
         "instructions": ""
       },
       "items": [
@@ -596,16 +596,16 @@
     {
       "orderId": "ORD-1785305022404",
       "customer": {
-        "fullName": "AVADHANAM SRI LAKSHMI UMA ANUHYA",
-        "phone": "9014081725",
+        "fullName": "Demo User",
+        "phone": "9000000000",
         "alternatePhone": "",
-        "houseNo": "4-81",
+        "houseNo": "123",
         "building": "",
-        "street": "4-81 near ramalayam temple agraharam",
+        "street": "Demo Street",
         "landmark": "",
-        "city": "Y.S.R",
-        "state": "Andhra Pradesh",
-        "pincode": "516505",
+        "city": "Demo City",
+        "state": "Demo State",
+        "pincode": "000000",
         "instructions": ""
       },
       "items": [
