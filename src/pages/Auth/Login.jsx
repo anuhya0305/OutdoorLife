@@ -23,12 +23,12 @@ const Login = () => {
         try {
             const result = await loginUser(user.email, user.password);
 
-            if (result.length > 0) {
+            if (result) {
                 alert("Login Successful!");
 
                 localStorage.setItem(
                     "loggedInUser",
-                    JSON.stringify(result[0])
+                    JSON.stringify(result)
                 );
 
                 navigate("/");

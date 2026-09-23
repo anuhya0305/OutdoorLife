@@ -27,7 +27,7 @@ const Register = () => {
         password: "",
       });
     } catch (error) {
-      alert("Registration Failed!");
+      alert(error.response?.data?.error || "Registration Failed!");
       console.error(error);
     }
   };

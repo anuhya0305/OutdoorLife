@@ -60,6 +60,7 @@ const Checkout = () => {
 
         const order = {
             orderId: `ORD-${Date.now()}`,
+            userId: JSON.parse(localStorage.getItem("loggedInUser"))?.id,
             customer: formData,
             items: cartItems,
             totalAmount: finalTotal,

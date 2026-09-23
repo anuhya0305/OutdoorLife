@@ -11,7 +11,7 @@ const Orders = () => {
 
   const loadOrders = async () => {
     try {
-      const data = await getOrders();
+      const data = await getOrders(JSON.parse(localStorage.getItem("loggedInUser"))?.id);
       setOrders(data.reverse());
     } catch (error) {
       console.error(error);
@@ -126,7 +126,7 @@ const Orders = () => {
                 >
 
                   <span>
-                    {item.title}
+                    {item.name}
                   </span>
 
                   <span>
