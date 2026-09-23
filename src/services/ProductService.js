@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API = "http://localhost:3000/products";
-const REVIEW_API = "http://localhost:3000/reviews";
+const BASE = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const API = `${BASE}/products`;
+const REVIEW_API = `${BASE}/reviews`;
 
 export const getProducts = async () => {
   const response = await axios.get(API);
@@ -45,16 +46,20 @@ export const getProductById = async (id) => {
   return response.data;
 };
 
+const adminAuth = () => ({
+  headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
+});
+
 export const addProduct = async (product) => {
-  const response = await axios.post(API, product);
+  const response = await axios.post(API, product, adminAuth());
   return response.data;
 };
 
 export const updateProduct = async (id, product) => {
-  const response = await axios.put(`${API}/${id}`, product);
+  const response = await axios.put(`${API}/${id}`, product, adminAuth());
   return response.data;
 };
 
 export const deleteProduct = async (id) => {
-  await axios.delete(`${API}/${id}`);
+  await axios.delete(`${API}/${id}`, adminAuth());
 };

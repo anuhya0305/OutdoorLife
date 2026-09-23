@@ -1,10 +1,9 @@
 import { Navigate } from "react-router-dom";
 
+// UI gate only; the API rejects admin requests without a valid token.
 const ProtectedAdminRoute = ({ children }) => {
-  const isAdmin = localStorage.getItem("isAdmin");
-
-  if (isAdmin !== "true") {
-    return <Navigate to="/admin" replace />;
+  if (!localStorage.getItem("adminToken")) {
+    return <Navigate to="/login" replace />;
   }
 
   return children;

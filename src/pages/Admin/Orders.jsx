@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Admin/Sidebar";
 import Header from "../../components/Admin/Header";
 import { FaEye } from "react-icons/fa";
-import { getOrders } from "../../services/OrderService";
+import { getAllOrders } from "../../services/OrderService";
 
 
 const Orders = () => {
@@ -14,7 +14,7 @@ const Orders = () => {
 
   const loadOrders = async () => {
     try {
-      const data = await getOrders();
+      const data = await getAllOrders();
       setOrders(data.reverse());
     } catch (error) {
       console.error(error);

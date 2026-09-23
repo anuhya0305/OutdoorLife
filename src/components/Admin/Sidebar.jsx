@@ -10,8 +10,8 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("isAdmin");
-    navigate("/admin");
+    localStorage.removeItem("adminToken");
+    navigate("/login");
   };
 
   const menuClass = ({ isActive }) =>
