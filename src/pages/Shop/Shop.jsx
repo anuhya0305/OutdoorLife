@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getProducts } from "../../services/ProductService";
 import ProductCard from "../../components/Home/ProductCard";
 import SearchBar from "../../components/Shop/SearchBar";
@@ -8,7 +9,8 @@ import SortDropdown from "../../components/Shop/SortDropdown";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchParams] = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "All");
   const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {

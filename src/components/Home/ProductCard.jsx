@@ -5,18 +5,17 @@ import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
 import { addToWishlist } from "../../redux/wishlistSlice";
 
-
-const handleAddToCart = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  dispatch(addToCart(product));
-  toast.success(`${product.name} added to cart!`);
-};
-
-
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart!`);
+  };
+
   return (
     <Link to={`/shop/${product.id}`}>
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300">
