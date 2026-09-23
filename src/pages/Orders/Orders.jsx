@@ -29,9 +29,9 @@ const Orders = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-10 px-5">
+    <div className="max-w-6xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
 
-      <h1 className="text-3xl font-bold mb-8">
+      <h1 className="text-3xl md:text-4xl font-bold mb-8">
         My Orders
       </h1>
 
@@ -41,10 +41,10 @@ const Orders = () => {
 
           <div
             key={order.orderId}
-            className="bg-white shadow rounded-xl p-6"
+            className="bg-white shadow rounded-xl p-5 md:p-6"
           >
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               <p>
                 <strong>Order ID:</strong> {order.orderId}
@@ -122,14 +122,14 @@ const Orders = () => {
 
                 <div
                   key={item.id}
-                  className="flex justify-between"
+                  className="flex flex-col sm:flex-row sm:justify-between gap-2 border-b pb-3"
                 >
 
-                  <span>
+                  <span className="font-medium break-words">
                     {item.title}
                   </span>
 
-                  <span>
+                  <span className="font-semibold">
                     {item.quantity} × ₹{item.price}
                   </span>
 

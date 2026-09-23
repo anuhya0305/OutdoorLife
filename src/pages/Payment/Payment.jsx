@@ -92,15 +92,15 @@ const Payment = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-5">
+    <div className="max-w-4xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
 
-      <h1 className="text-3xl font-bold mb-8">
+      <h1 className="text-3xl md:text-4xl font-bold mb-8">
         Payment
       </h1>
 
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      <div className="bg-white rounded-lg shadow-lg p-5 md:p-8">
 
-        <div className="space-y-5">
+        <div className="space-y-4">
 
           <label className="flex items-center gap-3">
             <input
@@ -194,7 +194,7 @@ const Payment = () => {
                 className="border p-3 rounded-lg w-full"
               />
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                 <input
                   type="text"
@@ -253,7 +253,7 @@ const Payment = () => {
         )}
         <button
           onClick={handlePayment}
-          className="mt-8 bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
+          className="mt-8 w-full sm:w-auto bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
         >
           Continue
         </button>

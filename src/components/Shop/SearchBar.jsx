@@ -5,7 +5,7 @@ const SearchBar = ({ search, setSearch }) => {
       placeholder="Search products..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="w-full md:w-96 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
+      className="w-full lg:w-96 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
     />
   );
 };

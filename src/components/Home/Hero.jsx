@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="bg-green-800 text-white">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-14 md:py-24 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-10 md:py-16 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
 
         {/* Left */}
 
@@ -26,9 +27,12 @@ const Hero = () => {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 
-            <button className="bg-orange-500 px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+            <Link
+              to="/shop"
+              className="bg-orange-500 px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition inline-block text-center"
+            >
               Shop Now
-            </button>
+            </Link>
 
             <button className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-green-800 transition">
               Explore
@@ -44,7 +48,7 @@ const Hero = () => {
           <img
             src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700"
             alt="Camping"
-            className="rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-[550px]"
+            className="rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-[460px] lg:max-w-[500px]"
           />
         </div>
 

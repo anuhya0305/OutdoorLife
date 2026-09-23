@@ -37,18 +37,18 @@ const Shop = () => {
   }
 
   return (
-    <div className="pt-28 pb-20 bg-gray-100 min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="pt-24 md:pt-28 pb-12 md:pb-20 bg-gray-100 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-        <h1 className="text-4xl font-bold text-center">
+        <h1 className="text-3xl md:text-4xl font-bold text-center">
           Shop Outdoor Gear
         </h1>
 
-        <p className="text-center text-gray-500 mt-3">
+        <p className="text-center text-gray-500 text-sm md:text-base mt-3">
           Search your favorite camping equipment.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 justify-between mt-10 mb-10">
+        <div className="flex flex-col lg:flex-row gap-4 mt-8 md:mt-10 mb-8 md:mb-10">
           <SearchBar
             search={search}
             setSearch={setSearch}
@@ -65,7 +65,7 @@ const Shop = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
