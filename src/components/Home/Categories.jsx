@@ -5,6 +5,7 @@ import {
   FaShoppingBag,
   FaLightbulb,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -19,7 +20,7 @@ const categories = [
   },
   {
     id: 3,
-    name: "Survival",
+    name: "Cooking",
     icon: FaFire,
   },
   {
@@ -50,8 +51,9 @@ const Categories = () => {
             const Icon = item.icon;
 
             return (
-              <div
+              <Link
                 key={item.id}
+                to={`/shop?category=${encodeURIComponent(item.name)}`}
                 className="bg-white rounded-xl shadow-lg p-5 md:p-8 text-center hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer"
               >
                 <div className="text-green-700 flex justify-center mb-4">
@@ -61,7 +63,7 @@ const Categories = () => {
                 <h3 className="font-semibold text-base md:text-lg">
                   {item.name}
                 </h3>
-              </div>
+              </Link>
             );
           })}
 

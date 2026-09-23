@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Admin/Sidebar";
+import Header from "../../components/Admin/Header";
 import { addProduct } from "../../services/ProductService";
 import { FaTimes } from "react-icons/fa";
 import { useRef } from "react";
