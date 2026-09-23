@@ -10,13 +10,14 @@ A full-stack e-commerce store for outdoor gear: a React storefront backed by a S
 - Cart and wishlist (Redux Toolkit state)
 - Checkout → payment → order confirmation, with orders persisted per user
 - Registration and login, with passwords hashed using BCrypt
+- Admin panel (add, edit, delete products; view all orders) secured with Spring Security + JWT
 
 ## Tech Stack
 
 **Backend** (`backend/`)
 - Java 17, Spring Boot 3.4
 - Spring Data JPA + Hibernate, PostgreSQL
-- BCrypt password hashing (`spring-security-crypto`)
+- Spring Security (OAuth2 resource server, JWT) and BCrypt password hashing
 - JUnit 5 + Mockito
 - Docker
 
@@ -35,8 +36,13 @@ A full-stack e-commerce store for outdoor gear: a React storefront backed by a S
 | POST | `/auth/login` | Log in (401 on bad credentials) |
 | POST | `/orders` | Place an order |
 | GET  | `/orders?userId={id}` | A user's own orders |
+| POST | `/admin/login` | Admin login, returns a JWT (8h) |
+| POST | `/products` | Add a product · **admin** |
+| PUT  | `/products/{id}` | Update a product · **admin** |
+| DELETE | `/products/{id}` | Delete a product · **admin** |
+| GET  | `/admin/orders` | All orders · **admin** |
 
-Passwords are never returned by the API. Products are seeded from `backend/src/main/resources/products.json` on first start.
+Admin endpoints are protected with Spring Security as an OAuth2 resource server: requests need an `Authorization: Bearer <token>` header with a valid HS256-signed JWT carrying the `ADMIN` scope. Admin credentials live in server environment variables, never in the frontend. Passwords are never returned by the API. Products are seeded from `backend/src/main/resources/products.json` on first start.
 
 ## Running Locally
 
@@ -47,6 +53,9 @@ cd backend
 export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/outdoorlife
 export SPRING_DATASOURCE_USERNAME=postgres
 export SPRING_DATASOURCE_PASSWORD=your-password
+export ADMIN_EMAIL=admin@outdoorlife.com
+export ADMIN_PASSWORD=choose-a-strong-password
+export JWT_SECRET=any-random-string-of-at-least-32-characters
 mvn spring-boot:run
 ```
 

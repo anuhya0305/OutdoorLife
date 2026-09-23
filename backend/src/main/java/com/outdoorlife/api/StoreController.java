@@ -3,6 +3,7 @@ package com.outdoorlife.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,11 @@ public class StoreController {
     @GetMapping("/products")
     public List<Product> products() {
         return products.findAll();
+    }
+
+    @GetMapping("/products/{id}")
+    public ResponseEntity<Product> product(@PathVariable String id) {
+        return ResponseEntity.of(products.findById(id));
     }
 
     @GetMapping("/reviews")

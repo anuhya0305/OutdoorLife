@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../services/AuthService";
+import { loginUser, adminLogin } from "../../services/AuthService";
 import { FaUser, FaUserShield } from "react-icons/fa";
 
 const Login = () => {
@@ -26,14 +26,18 @@ const Login = () => {
         // ADMIN LOGIN
         if (loginType === "admin") {
 
-            if (
-                user.email === "admin@outdoorlife.com" &&
-                user.password === "admin123"
-            ) {
-                localStorage.setItem("isAdmin", "true");
-                navigate("/admin/dashboard");
-            } else {
-                alert("Invalid Admin Credentials");
+            try {
+                const token = await adminLogin(user.email, user.password);
+
+                if (token) {
+                    localStorage.setItem("adminToken", token);
+                    navigate("/admin/dashboard");
+                } else {
+                    alert("Invalid Admin Credentials");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Login Failed");
             }
 
             return;
