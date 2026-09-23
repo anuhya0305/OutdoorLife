@@ -1,7 +1,18 @@
 import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
+import { toast } from "react-toastify";
 import { addToWishlist } from "../../redux/wishlistSlice";
+
+
+const handleAddToCart = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  dispatch(addToCart(product));
+  toast.success(`${product.name} added to cart!`);
+};
 
 
 const ProductCard = ({ product }) => {
@@ -18,7 +29,12 @@ const ProductCard = ({ product }) => {
           />
 
           <button
-            onClick={() => dispatch(addToWishlist(product))}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              dispatch(addToWishlist(product));
+              toast.success(`${product.name} added to wishlist!`);
+            }}
             className="absolute top-3 right-3 bg-white p-2 rounded-full shadow hover:bg-red-100"
           >
             <FaHeart className="text-red-500" />
@@ -55,7 +71,10 @@ const ProductCard = ({ product }) => {
 
           <div className="mt-5 flex justify-between">
 
-            <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg flex items-center justify-center gap-2">
+            <button
+              onClick={handleAddToCart}
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg flex items-center justify-center gap-2"
+            >
               <FaShoppingCart />
               Add
             </button>

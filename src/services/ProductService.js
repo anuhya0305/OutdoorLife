@@ -40,3 +40,22 @@ export const addReview = async (review) => {
   const response = await axios.post(REVIEW_API, review);
   return response.data;
 };
+
+export const getProductById = async (id) => {
+  const response = await axios.get(`${API}/${id}`);
+  return response.data;
+};
+
+export const addProduct = async (product) => {
+  const response = await axios.post(API, product);
+  return response.data;
+};
+
+export const updateProduct = async (id, product) => {
+  const response = await axios.put(`${API}/${id}`, product);
+  return response.data;
+};
+
+export const deleteProduct = async (id) => {
+  await axios.delete(`${API}/${id}`);
+};

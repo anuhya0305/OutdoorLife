@@ -100,14 +100,14 @@ const Checkout = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto py-10 px-5">
-            <h1 className="text-3xl font-bold mb-8">
+        <div className="max-w-6xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8">
                 Checkout
             </h1>
 
-            <div className="bg-white shadow-lg rounded-lg p-8">
+            <div className="bg-white shadow-lg rounded-lg p-5 md:p-8">
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
                     <input
                         type="text"
@@ -230,7 +230,7 @@ const Checkout = () => {
                     placeholder="Delivery Instructions (Optional)"
                     value={formData.instructions}
                     onChange={handleChange}
-                    className="border p-3 rounded-lg mt-4 w-full h-28"
+                    className="border p-3 rounded-lg mt-4 w-full h-28 resize-none"
                 />
                 <div className="mt-6 border-t pt-6">
 
@@ -250,19 +250,19 @@ const Checkout = () => {
                         Total: ₹{finalTotal.toFixed(2)}
                     </p>
 
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
 
                         <input
                             type="text"
                             placeholder="Enter Coupon Code"
                             value={coupon}
                             onChange={(e) => setCoupon(e.target.value)}
-                            className="flex-1 border p-3 rounded-lg"
+                            className="w-full flex-1 border p-3 rounded-lg"
                         />
 
                         <button
                             onClick={applyCoupon}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-5 rounded-lg"
+                            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg"
                         >
                             Apply
                         </button>
@@ -277,7 +277,7 @@ const Checkout = () => {
 
                 <button
                     onClick={handlePlaceOrder}
-                    className="mt-8 bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
+                    className="mt-8 w-full sm:w-auto bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800"
                 >
                     Place Order
                 </button>

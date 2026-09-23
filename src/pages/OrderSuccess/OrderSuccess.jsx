@@ -5,13 +5,13 @@ const OrderSuccess = () => {
   const pendingOrder = JSON.parse(localStorage.getItem("lastOrder"));
 
   return (
-    <div className="max-w-3xl mx-auto py-16 px-5">
+    <div className="max-w-3xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
 
-      <div className="bg-white shadow-lg rounded-xl p-10 text-center">
+      <div className="bg-white shadow-lg rounded-xl p-6 md:p-10 text-center">
 
-        <div className="text-6xl mb-5">✅</div>
+        <div className="text-5xl md:text-6xl mb-5">✅</div>
 
-        <h1 className="text-3xl font-bold text-green-700">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-700">
           Order Placed Successfully!
         </h1>
 
@@ -20,7 +20,7 @@ const OrderSuccess = () => {
         </p>
 
         {pendingOrder && (
-          <div className="mt-8 text-left space-y-3">
+          <div className="mt-8 text-left space-y-3 break-words">
 
             <p>
               <strong>Order ID:</strong> {pendingOrder.orderId}
@@ -45,11 +45,11 @@ const OrderSuccess = () => {
           </div>
         )}
 
-        <div className="flex gap-5 justify-center mt-10">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
 
           <Link
             to="/shop"
-            className="bg-green-700 text-white px-6 py-3 rounded-lg"
+            className="w-full sm:w-auto bg-green-700 text-white px-6 py-3 rounded-lg text-center"
           >
             Continue Shopping
           </Link>

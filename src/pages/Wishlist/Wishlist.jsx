@@ -10,24 +10,24 @@ const Wishlist = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="max-w-6xl mx-auto py-10 px-5">
-      <h1 className="text-3xl font-bold mb-8">
+    <div className="max-w-6xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
+      <h1 className="text-3xl md:text-4xl font-bold mb-8">
         My Wishlist
       </h1>
 
       {wishlistItems.length === 0 ? (
         <h2>Your wishlist is empty.</h2>
       ) : (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {wishlistItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white shadow rounded-lg p-4"
+              className="bg-white shadow rounded-lg p-4 flex flex-col"
             >
               <img
                 src={item.image}
                 alt={item.name}
-                className="h-48 w-full object-cover rounded"
+                className="h-56 sm:h-52 lg:h-48 w-full object-cover rounded"
               />
 
               <h2 className="text-xl font-semibold mt-4">
@@ -38,18 +38,19 @@ const Wishlist = () => {
                 ₹{item.price}
               </p>
 
-              <div className="flex gap-3 mt-4">
+              <div className="flex flex-col sm:flex-row gap-3 mt-4">
 
                 <button
                   onClick={() => dispatch(addToCart(item))}
                   className="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
                 >
                   Add to Cart
-                </button>
+                </button>className="flex-1 w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
+
 
                 <button
                   onClick={() => dispatch(removeFromWishlist(item.id))}
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
+                  className="flex-1 w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
                 >
                   Remove
                 </button>

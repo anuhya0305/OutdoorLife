@@ -9,6 +9,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
+
 const Navbar = () => {
   const navigate = useNavigate();
 

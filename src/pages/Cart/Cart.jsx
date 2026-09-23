@@ -19,10 +19,10 @@ const Cart = () => {
   );
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-gray-100">
-      <div className="max-w-6xl mx-auto px-6">
+    <div className="pt-24 md:pt-28 pb-12 md:pb-20 min-h-screen bg-gray-100">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
 
-        <h1 className="text-4xl font-bold mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8">
           Shopping Cart
         </h1>
 
@@ -35,21 +35,21 @@ const Cart = () => {
 
               <div
                 key={item.id}
-                className="bg-white p-5 rounded-lg shadow flex justify-between items-center"
+                className="bg-white p-5 rounded-lg shadow flex flex-col lg:flex-row items-center lg:justify-between gap-5 text-center lg:text-left"
               >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 object-cover rounded-lg"
+                  className="w-28 h-28 md:w-24 md:h-24 object-cover rounded-lg"
                 />
 
-                <h2 className="text-xl font-semibold">
+                <h2 className="text-lg md:text-xl font-semibold">
                   {item.name}
                 </h2>
 
                 <p>Price : ₹{item.price}</p>
 
-                <div className="flex items-center gap-3 mt-3">
+                <div className="flex items-center justify-center gap-3 mt-3">
 
                   <button
                     onClick={() => dispatch(decreaseQuantity(item.id))}
@@ -75,7 +75,7 @@ const Cart = () => {
 
                 <button
                   onClick={() => dispatch(removeFromCart(item.id))}
-                  className="mt-3 bg-red-500 text-white px-4 py-2 rounded"
+                  className="mt-3 bg-red-500 text-white px-4 py-2 rounded w-full sm:w-auto"
                 >
                   Remove
                 </button>
@@ -85,8 +85,8 @@ const Cart = () => {
         )}
 
         {cartItems.length > 0 && (
-          <div className="mt-8 flex justify-end">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+          <div className="mt-8 flex justify-center lg:justify-end">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
 
               <h2 className="text-2xl font-bold mb-4">
                 Grand Total: ₹{totalAmount}

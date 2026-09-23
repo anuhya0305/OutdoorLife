@@ -18,7 +18,12 @@ import Orders from "../pages/Orders/Orders";
 import OrderSuccess from "../pages/OrderSuccess/OrderSuccess";
 import Payment from "../pages/Payment/Payment";
 
-
+import Dashboard from "../pages/Admin/Dashboard";
+import Products from "../pages/Admin/Products";
+import AddProduct from "../pages/Admin/AddProduct";
+import EditProduct from "../pages/Admin/EditProduct";
+import ProtectedAdminRoute from "./ProtectedAdminRoute";
+import AdminOrders from "../pages/Admin/Orders";
 
 
 const AppRoutes = () => {
@@ -89,9 +94,51 @@ const AppRoutes = () => {
           }
         />
 
+        {/* Admin Routes */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedAdminRoute>
+              <Dashboard />
+            </ProtectedAdminRoute>
+          }
+        />
 
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedAdminRoute>
+              <Products />
+            </ProtectedAdminRoute>
+          }
+        />
 
+        <Route
+          path="/admin/add-product"
+          element={
+            <ProtectedAdminRoute>
+              <AddProduct />
+            </ProtectedAdminRoute>
+          }
+        />
 
+        <Route
+          path="/admin/edit-product/:id"
+          element={
+            <ProtectedAdminRoute>
+              <EditProduct />
+            </ProtectedAdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedAdminRoute>
+              <AdminOrders />
+            </ProtectedAdminRoute>
+          }
+        />
 
       </Route>
 

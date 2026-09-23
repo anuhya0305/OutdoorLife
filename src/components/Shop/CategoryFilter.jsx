@@ -3,7 +3,7 @@ const CategoryFilter = ({ categories, selected, setSelected }) => {
     <select
       value={selected}
       onChange={(e) => setSelected(e.target.value)}
-      className="p-3 rounded-lg border border-gray-300"
+      className="w-full lg:w-64 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
     >
       <option value="All">All Categories</option>
 
