@@ -10,7 +10,7 @@ const Wishlist = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="max-w-6xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
+    <div className="max-w-6xl mx-auto pt-8 md:pt-12 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
       <h1 className="text-3xl md:text-4xl font-bold mb-8">
         My Wishlist
       </h1>

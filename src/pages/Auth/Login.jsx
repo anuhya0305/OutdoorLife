@@ -73,7 +73,7 @@ const Login = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 flex justify-center items-center px-4">
 
-            <div className="bg-white p-8 rounded-xl shadow-lg w-[420px]">
+            <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-[420px]">
 
                 {/* Logo */}
 

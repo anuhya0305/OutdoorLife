@@ -52,15 +52,15 @@ const Products = () => {
     product.name.toLowerCase().includes(search.toLowerCase())
   );
   return (
-    <div className="flex min-h-screen bg-[#f4f7fb]">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#f4f7fb]">
 
       <Sidebar />
 
-      <div className="flex-1 p-8">
+      <div className="flex-1 min-w-0 p-4 md:p-8">
 
         <Header />
 
-        <div className="bg-white rounded-3xl shadow-lg mt-8 p-8">
+        <div className="bg-white rounded-3xl shadow-lg mt-8 p-4 md:p-8">
 
           <div className="flex justify-between items-center mb-8">
 

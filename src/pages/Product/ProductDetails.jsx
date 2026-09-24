@@ -47,7 +47,7 @@ const ProductDetails = () => {
     toast.success(`${product.name} added to wishlist!`);
   };
   return (
-    <div className="pt-24 md:pt-28 pb-12 md:pb-20 bg-gray-100 min-h-screen">
+    <div className="pt-8 md:pt-12 pb-12 md:pb-20 bg-gray-100 min-h-screen">
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-4 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
 
         <img

@@ -15,17 +15,17 @@ const Sidebar = () => {
   };
 
   const menuClass = ({ isActive }) =>
-    `flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
+    `flex shrink-0 items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
       isActive
         ? "bg-green-700 text-white shadow-lg"
         : "text-gray-700 hover:bg-green-100 hover:text-green-700"
     }`;
 
   return (
-    <aside className="w-72 bg-white shadow-2xl min-h-screen p-6 border-r">
+    <aside className="w-full lg:w-72 bg-white shadow-2xl lg:min-h-screen p-4 lg:p-6 border-b lg:border-b-0 lg:border-r">
 
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold text-green-700">
+      <div className="mb-4 lg:mb-10">
+        <h1 className="text-2xl lg:text-3xl font-bold text-green-700">
           🏕️ OutdoorLife
         </h1>
 
@@ -34,7 +34,7 @@ const Sidebar = () => {
         </p>
       </div>
 
-      <nav className="space-y-3">
+      <nav className="flex gap-2 overflow-x-auto lg:flex-col lg:gap-3 lg:overflow-visible">
 
         <NavLink
           to="/admin/dashboard"
@@ -64,7 +64,7 @@ const Sidebar = () => {
 
       <button
         onClick={handleLogout}
-        className="mt-12 w-full flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-xl hover:bg-red-700 transition"
+        className="mt-4 lg:mt-12 w-full flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-xl hover:bg-red-700 transition"
       >
         <FaSignOutAlt />
         Logout

@@ -6,7 +6,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="bg-white rounded-3xl shadow-md px-8 py-5 flex items-center justify-between border border-gray-100">
+    <header className="bg-white rounded-3xl shadow-md px-5 md:px-8 py-5 flex flex-wrap gap-4 items-center justify-between border border-gray-100">
 
       <div>
         <h1 className="text-3xl font-bold">
