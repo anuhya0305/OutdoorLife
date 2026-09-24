@@ -58,22 +58,20 @@ const Payment = () => {
       return;
     }
 
-    pendingOrder.paymentMethod = paymentMethod;
-
-    pendingOrder.paymentStatus =
-      paymentMethod === "Cash on Delivery"
-        ? "Pending"
-        : "Paid";
-
-    pendingOrder.orderStatus = "Processing";
+    const order = {
+      ...pendingOrder,
+      paymentMethod,
+      paymentStatus: paymentMethod === "Cash on Delivery" ? "Pending" : "Paid",
+      orderStatus: "Processing",
+    };
 
     try {
 
-      await placeOrder(pendingOrder);
+      await placeOrder(order);
 
       localStorage.setItem(
         "lastOrder",
-        JSON.stringify(pendingOrder)
+        JSON.stringify(order)
       );
 
       dispatch(clearCart());
@@ -86,7 +84,7 @@ const Payment = () => {
 
       console.error(error);
 
-      alert("Payment Failed");
+      alert(error.response?.data?.error || "Payment Failed");
 
     }
   };

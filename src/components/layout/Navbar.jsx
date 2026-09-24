@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   FaHeart,
   FaShoppingCart,
@@ -13,17 +13,14 @@ import {
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const [loggedInUser, setLoggedInUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    setLoggedInUser(user);
-  }, []);
+  // Re-read on every navigation so the header updates right after login/logout.
+  useLocation();
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
-    setLoggedInUser(null);
     navigate("/login");
   };
   const cartItems = useSelector((state) => state.cart.cartItems);

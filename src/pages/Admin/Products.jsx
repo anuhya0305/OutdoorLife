@@ -15,9 +15,6 @@ const Products = () => {
 
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    loadProducts();
-  }, []);
 
   const loadProducts = async () => {
     try {
@@ -27,6 +24,10 @@ const Products = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    getProducts().then(setProducts).catch((error) => console.error(error));
+  }, []);
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(

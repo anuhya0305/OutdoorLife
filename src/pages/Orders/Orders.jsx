@@ -5,18 +5,11 @@ const Orders = () => {
 
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    loadOrders();
-  }, []);
 
-  const loadOrders = async () => {
-    try {
-      const data = await getOrders(JSON.parse(localStorage.getItem("loggedInUser"))?.id);
-      setOrders(data.reverse());
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
+  useEffect(() => {
+    getOrders().then((data) => setOrders(data.reverse())).catch((error) => console.error(error));
+  }, []);
 
   if (orders.length === 0) {
     return (

@@ -1,12 +1,11 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
 
-    const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const [coupon, setCoupon] = useState("");
@@ -60,7 +59,6 @@ const Checkout = () => {
 
         const order = {
             orderId: `ORD-${Date.now()}`,
-            userId: JSON.parse(localStorage.getItem("loggedInUser"))?.id,
             customer: formData,
             items: cartItems,
             totalAmount: finalTotal,

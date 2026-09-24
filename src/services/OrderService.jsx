@@ -1,21 +1,17 @@
 import axios from "axios";
 
-const BASE = import.meta.env.VITE_API_URL || "http://localhost:8080";
-const API_URL = `${BASE}/orders`;
+const API_URL = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/orders`;
 
-export const getAllOrders = async () => {
-  const response = await axios.get(`${BASE}/admin/orders`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("adminToken")}` },
-  });
-  return response.data;
-};
+const userAuth = () => ({
+  headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("loggedInUser"))?.token}` },
+});
 
 export const placeOrder = async (order) => {
-  const response = await axios.post(API_URL, order);
+  const response = await axios.post(API_URL, order, userAuth());
   return response.data;
 };
 
-export const getOrders = async (userId) => {
-  const response = await axios.get(API_URL, { params: { userId } });
+export const getOrders = async () => {
+  const response = await axios.get(API_URL, userAuth());
   return response.data;
 };

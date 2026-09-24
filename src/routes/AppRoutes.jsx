@@ -5,6 +5,7 @@ import MainLayout from "../components/layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Shop from "../pages/Shop/Shop";
 import Contact from "../pages/Contact/Contact";
+import Help from "../pages/Help/Help";
 import NotFound from "../pages/NotFound/NotFound";
 import ProductDetails from "../pages/Product/ProductDetails";
 import Cart from "../pages/Cart/Cart";
@@ -43,6 +44,7 @@ const AppRoutes = () => {
           }
         />
         <Route path="contact" element={<Contact />} />
+        <Route path="help" element={<Help />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route

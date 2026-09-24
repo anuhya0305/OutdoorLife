@@ -2,6 +2,7 @@ package com.outdoorlife.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,11 +22,15 @@ public class AuthController {
 
     public record LoginRequest(String email, String password) {}
 
+    public record Session(String id, String name, String email, String token) {}
+
     private final UserRepository users;
+    private final JwtEncoder jwt;
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public AuthController(UserRepository users) {
+    public AuthController(UserRepository users, JwtEncoder jwt) {
         this.users = users;
+        this.jwt = jwt;
     }
 
     @PostMapping("/register")
@@ -41,7 +46,7 @@ public class AuthController {
         user.name = req.name().trim();
         user.email = email;
         user.password = encoder.encode(req.password());
-        return ResponseEntity.status(201).body(users.save(user));
+        return ResponseEntity.status(201).body(session(users.save(user)));
     }
 
     @PostMapping("/login")
@@ -51,7 +56,11 @@ public class AuthController {
         }
         return users.findByEmail(req.email().trim().toLowerCase())
                 .filter(user -> encoder.matches(req.password(), user.password))
-                .<ResponseEntity<?>>map(ResponseEntity::ok)
+                .<ResponseEntity<?>>map(user -> ResponseEntity.ok(session(user)))
                 .orElse(ResponseEntity.status(401).body(Map.of("error", "Invalid email or password")));
+    }
+
+    private Session session(AppUser user) {
+        return new Session(user.id, user.name, user.email, SecurityConfig.issueToken(jwt, user.id, "USER", 24));
     }
 }
