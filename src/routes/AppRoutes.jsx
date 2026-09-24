@@ -45,6 +45,7 @@ const AppRoutes = () => {
         />
         <Route path="contact" element={<Contact />} />
         <Route path="help" element={<Help />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route
@@ -143,9 +144,6 @@ const AppRoutes = () => {
         />
 
       </Route>
-
-      {/* 404 */}
-      <Route path="*" element={<NotFound />} />
 
     </Routes>
   );

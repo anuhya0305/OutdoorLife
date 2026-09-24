@@ -5,7 +5,7 @@ const OrderSuccess = () => {
   const pendingOrder = JSON.parse(localStorage.getItem("lastOrder"));
 
   return (
-    <div className="max-w-3xl mx-auto pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
+    <div className="max-w-3xl mx-auto pt-8 md:pt-12 pb-12 md:pb-20 px-4 md:px-6 min-h-screen bg-gray-100">
 
       <div className="bg-white shadow-lg rounded-xl p-6 md:p-10 text-center">
 

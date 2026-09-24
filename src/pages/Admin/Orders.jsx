@@ -28,15 +28,15 @@ const Orders = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#f4f7fb]">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#f4f7fb]">
 
       <Sidebar />
 
-      <div className="flex-1 p-8">
+      <div className="flex-1 min-w-0 p-4 md:p-8">
 
         <Header />
 
-        <div className="bg-white rounded-3xl shadow-lg p-8 mt-8">
+        <div className="bg-white rounded-3xl shadow-lg p-4 md:p-8 mt-8">
 
           <div className="mb-8">
             <h1 className="text-3xl font-bold">Order Management</h1>

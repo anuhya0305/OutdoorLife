@@ -35,9 +35,9 @@ const Dashboard = () => {
 
   if (error) {
     return (
-      <div className="flex min-h-screen bg-[#f4f7fb]">
+      <div className="flex flex-col lg:flex-row min-h-screen bg-[#f4f7fb]">
         <Sidebar />
-        <div className="flex-1 p-8"><Header /><p className="mt-8 text-red-600">{error}</p></div>
+        <div className="flex-1 min-w-0 p-4 md:p-8"><Header /><p className="mt-8 text-red-600">{error}</p></div>
       </div>
     );
   }
@@ -52,11 +52,11 @@ const Dashboard = () => {
   const byStatus = stats?.ordersByStatus || {};
 
   return (
-    <div className="flex min-h-screen bg-[#f4f7fb]">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#f4f7fb]">
 
       <Sidebar />
 
-      <div className="flex-1 p-8">
+      <div className="flex-1 min-w-0 p-4 md:p-8">
 
         <Header />
 
