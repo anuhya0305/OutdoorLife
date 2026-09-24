@@ -34,9 +34,12 @@ const Hero = () => {
               Shop Now
             </Link>
 
-            <button className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-green-800 transition">
+            <a
+              href="#categories"
+              className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-green-800 transition inline-block text-center"
+            >
               Explore
-            </button>
+            </a>
 
           </div>
 

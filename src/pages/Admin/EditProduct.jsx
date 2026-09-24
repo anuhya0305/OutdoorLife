@@ -22,18 +22,11 @@ const EditProduct = () => {
     description: "",
   });
 
-  useEffect(() => {
-    loadProduct();
-  }, [id]);
 
-  const loadProduct = async () => {
-    try {
-      const data = await getProductById(id);
-      setProduct(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
+  useEffect(() => {
+    getProductById(id).then(setProduct).catch((error) => console.error(error));
+  }, [id]);
 
   const handleChange = (e) => {
     setProduct({

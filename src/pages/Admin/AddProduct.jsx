@@ -6,6 +6,8 @@ import { addProduct } from "../../services/ProductService";
 import { FaTimes } from "react-icons/fa";
 import { useRef } from "react";
 
+const MAX_IMAGE_BYTES = 1024 * 1024;
+
 const AddProduct = () => {
   const navigate = useNavigate();
 
@@ -19,8 +21,6 @@ const AddProduct = () => {
     image: "",
     description: "",
   });
-
-  const [imageFile, setImageFile] = useState(null);
 
   const fileInputRef = useRef(null);
 
@@ -38,7 +38,7 @@ const AddProduct = () => {
       const newProduct = {
         ...product,
         image: product.image,
-        id: Date.now(),
+        id: String(Date.now()),
         price: Number(product.price),
         oldPrice: Number(product.oldPrice),
         stock: Number(product.stock),
@@ -161,15 +161,19 @@ const AddProduct = () => {
                 accept="image/*"
                 onChange={(e) => {
                   const file = e.target.files[0];
+                  if (!file) return;
 
-                  if (file) {
-                    setImageFile(file);
-
-                    setProduct({
-                      ...product,
-                      image: URL.createObjectURL(file),
-                    });
+                  if (file.size > MAX_IMAGE_BYTES) {
+                    alert("Image must be 1 MB or smaller.");
+                    e.target.value = "";
+                    return;
                   }
+
+                  // Store the image itself (as a data URL), not a temporary blob: link
+                  // that only works in this browser tab.
+                  const reader = new FileReader();
+                  reader.onload = () => setProduct((p) => ({ ...p, image: reader.result }));
+                  reader.readAsDataURL(file);
                 }}
                 className="w-full border rounded-xl p-3"
               />
@@ -186,8 +190,6 @@ const AddProduct = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      setImageFile(null);
-
                       setProduct({
                         ...product,
                         image: "",

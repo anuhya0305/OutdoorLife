@@ -10,7 +10,7 @@ public class Product {
     @Id
     public String id;
     public String name;
-    @Column(length = 1000)
+    @Column(columnDefinition = "text")
     public String description;
     public String category;
     public Integer price;
@@ -20,5 +20,8 @@ public class Product {
     public Boolean featured;
     public Boolean deal;
     public Boolean bestSeller;
+    // Either a /images/... path or a base64 data URL uploaded from the admin panel.
+    // ponytail: images live in the DB; move them to object storage (S3, Cloudinary) if uploads grow.
+    @Column(columnDefinition = "text")
     public String image;
 }

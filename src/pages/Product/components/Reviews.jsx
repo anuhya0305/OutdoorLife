@@ -13,14 +13,15 @@ const Reviews = ({ productId }) => {
         comment: "",
     });
 
-    useEffect(() => {
-        loadReviews();
-    }, [productId]);
 
     const loadReviews = async () => {
         const data = await getReviewsByProduct(productId);
         setReviews(data);
     };
+
+    useEffect(() => {
+      getReviewsByProduct(productId).then(setReviews).catch((error) => console.error(error));
+    }, [productId]);
 
     const handleChange = (e) => {
         setForm({

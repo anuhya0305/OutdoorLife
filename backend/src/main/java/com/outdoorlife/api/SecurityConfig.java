@@ -8,8 +8,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
+import org.springframework.security.oauth2.jwt.JwsHeader;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -17,11 +21,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
 @Configuration
 public class SecurityConfig {
 
     static final String ADMIN = "SCOPE_ADMIN";
+    static final String USER = "SCOPE_USER";
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -31,10 +38,12 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST, "/admin/login").permitAll()
+                        .requestMatchers("/admin/**").hasAuthority(ADMIN)
                         .requestMatchers(HttpMethod.POST, "/products").hasAuthority(ADMIN)
                         .requestMatchers(HttpMethod.PUT, "/products/**").hasAuthority(ADMIN)
                         .requestMatchers(HttpMethod.DELETE, "/products/**").hasAuthority(ADMIN)
-                        .requestMatchers("/admin/orders").hasAuthority(ADMIN)
+                        .requestMatchers("/orders", "/orders/**").hasAuthority(USER)
                         .anyRequest().permitAll())
                 .oauth2ResourceServer(oauth -> oauth.jwt(Customizer.withDefaults()))
                 .build();
@@ -53,5 +62,17 @@ public class SecurityConfig {
     @Bean
     JwtDecoder jwtDecoder(SecretKey key) {
         return NimbusJwtDecoder.withSecretKey(key).build();
+    }
+
+    static String issueToken(JwtEncoder jwt, String subject, String scope, long hours) {
+        Instant now = Instant.now();
+        JwtClaimsSet claims = JwtClaimsSet.builder()
+                .subject(subject)
+                .issuedAt(now)
+                .expiresAt(now.plus(hours, ChronoUnit.HOURS))
+                .claim("scope", scope)
+                .build();
+        return jwt.encode(JwtEncoderParameters.from(JwsHeader.with(MacAlgorithm.HS256).build(), claims))
+                .getTokenValue();
     }
 }

@@ -1,12 +1,5 @@
-import { useEffect, useState } from "react";
-
 const Profile = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    setUser(loggedUser);
-  }, []);
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
 
   if (!user) {
     return <h2 className="text-center mt-10">Loading...</h2>;

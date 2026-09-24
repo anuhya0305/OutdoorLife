@@ -3,11 +3,7 @@ package com.outdoorlife.api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
-import org.springframework.security.oauth2.jwt.JwsHeader;
-import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
-import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,32 +15,41 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.UUID;
 
 import static org.springframework.util.StringUtils.hasText;
 
-// Access to these endpoints (except /admin/login) is enforced in SecurityConfig.
+// Access to everything here except /admin/login is enforced in SecurityConfig.
 @CrossOrigin
 @RestController
 public class AdminController {
 
     public record LoginRequest(String email, String password) {}
 
+    static final Set<String> ORDER_STATUSES = Set.of("Processing", "Shipped", "Delivered", "Cancelled");
+
     private final ProductRepository products;
     private final OrderRepository orders;
+    private final UserRepository users;
+    private final ContactMessageRepository messages;
+    private final SubscriberRepository subscribers;
     private final JwtEncoder jwt;
     private final String adminEmail;
     private final String adminPassword;
 
-    public AdminController(ProductRepository products, OrderRepository orders, JwtEncoder jwt,
+    public AdminController(ProductRepository products, OrderRepository orders, UserRepository users,
+                           ContactMessageRepository messages, SubscriberRepository subscribers, JwtEncoder jwt,
                            @Value("${ADMIN_EMAIL:admin@outdoorlife.com}") String adminEmail,
                            @Value("${ADMIN_PASSWORD}") String adminPassword) {
         this.products = products;
         this.orders = orders;
+        this.users = users;
+        this.messages = messages;
+        this.subscribers = subscribers;
         this.jwt = jwt;
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
@@ -60,16 +65,7 @@ public class AdminController {
         if (!valid) {
             return ResponseEntity.status(401).body(Map.of("error", "Invalid admin credentials"));
         }
-        Instant now = Instant.now();
-        JwtClaimsSet claims = JwtClaimsSet.builder()
-                .subject(adminEmail)
-                .issuedAt(now)
-                .expiresAt(now.plus(8, ChronoUnit.HOURS))
-                .claim("scope", "ADMIN")
-                .build();
-        String token = jwt.encode(JwtEncoderParameters.from(JwsHeader.with(MacAlgorithm.HS256).build(), claims))
-                .getTokenValue();
-        return ResponseEntity.ok(Map.of("token", token));
+        return ResponseEntity.ok(Map.of("token", SecurityConfig.issueToken(jwt, adminEmail, "ADMIN", 8)));
     }
 
     @PostMapping("/products")
@@ -98,5 +94,44 @@ public class AdminController {
     @GetMapping("/admin/orders")
     public List<CustomerOrder> allOrders() {
         return orders.findAll(Sort.by("orderDate"));
+    }
+
+    @PutMapping("/admin/orders/{id}/status")
+    public ResponseEntity<?> updateOrderStatus(@PathVariable String id, @RequestBody Map<String, String> body) {
+        String status = body.get("orderStatus");
+        if (!ORDER_STATUSES.contains(status)) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Status must be one of " + ORDER_STATUSES));
+        }
+        return orders.findById(id)
+                .<ResponseEntity<?>>map(order -> {
+                    order.orderStatus = status;
+                    return ResponseEntity.ok(orders.save(order));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    // ponytail: aggregates in memory, fine for a demo store; switch to SUM/COUNT queries at scale
+    @GetMapping("/admin/stats")
+    public Map<String, Object> stats() {
+        List<CustomerOrder> all = orders.findAll(Sort.by(Sort.Direction.DESC, "orderDate"));
+        double revenue = all.stream()
+                .filter(o -> !"Cancelled".equals(o.orderStatus))
+                .mapToDouble(o -> o.totalAmount == null ? 0 : o.totalAmount)
+                .sum();
+        Map<String, Long> byStatus = new TreeMap<>();
+        all.forEach(o -> byStatus.merge(o.orderStatus == null ? "Processing" : o.orderStatus, 1L, Long::sum));
+        return Map.of(
+                "products", products.count(),
+                "orders", all.size(),
+                "customers", users.count(),
+                "revenue", revenue,
+                "subscribers", subscribers.count(),
+                "ordersByStatus", byStatus,
+                "recentOrders", all.subList(0, Math.min(5, all.size())));
+    }
+
+    @GetMapping("/admin/messages")
+    public List<ContactMessage> contactMessages() {
+        return messages.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
     }
 }

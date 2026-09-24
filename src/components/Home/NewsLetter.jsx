@@ -1,4 +1,21 @@
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { subscribe } from "../../services/ContactService";
+
 const Newsletter = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await subscribe(email);
+      toast.success("You're subscribed!");
+      setEmail("");
+    } catch (error) {
+      toast.error(error.response?.data?.error || "Couldn't subscribe. Try again.");
+    }
+  };
+
   return (
     <section className="bg-green-800 py-12 md:py-20 text-white">
       <div className="max-w-[700px] mx-auto text-center px-4 md:px-8">
@@ -11,19 +28,22 @@ const Newsletter = () => {
           Get exclusive offers and outdoor tips.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-0">
+        <form onSubmit={handleSubmit} className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-0">
 
           <input
             type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             className="w-full p-4 rounded-lg sm:rounded-l-lg sm:rounded-r-none outline-none text-black"
           />
 
-          <button className="bg-orange-500 px-8 py-4 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-orange-600 transition">
+          <button type="submit" className="bg-orange-500 px-8 py-4 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-orange-600 transition">
             Subscribe
           </button>
 
-        </div>
+        </form>
 
       </div>
     </section>

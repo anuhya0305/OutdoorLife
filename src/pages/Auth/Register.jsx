@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/AuthService";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -19,13 +21,10 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await registerUser(user);
+      const session = await registerUser(user);
+      localStorage.setItem("loggedInUser", JSON.stringify(session));
       alert("Registration Successful!");
-      setUser({
-        name: "",
-        email: "",
-        password: "",
-      });
+      navigate("/");
     } catch (error) {
       alert(error.response?.data?.error || "Registration Failed!");
       console.error(error);
